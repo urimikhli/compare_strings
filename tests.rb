@@ -29,3 +29,37 @@ if is_a_within_b(string1, string2_match, exact_match)
 else
     puts "matching string next char edgecase: failed"
 end
+
+# Test 4 
+# can work for sequences
+s1 = [1,'a',3]
+s2_matching = [1,3,'f',5,1,'a',3,'d',6,7,8,'h']
+exact_match = true
+if is_a_within_b(s1, s2_matching, exact_match)
+    puts "matching sequences : passed"
+else
+    puts "matching sequences : failed"
+end
+
+# Test 5 
+# can work for sequences
+s1 = [1,'a',3]
+s2_non_matching = [1,3,'f',5,1,'a',43,'d',6,7,8,'h']
+exact_match = true
+if is_a_within_b(s1, s2_non_matching, exact_match)
+    puts "NON matching sequences : failed"
+else
+    puts "NON matching sequences : passed"
+end
+
+# Test 6
+# can work for sequences
+s1 = [1,'a',3]
+s2_matching = [1,3,'f',5,1,1,'a',3,'d',6,7,8,'h']
+exact_match = true
+if is_a_within_b(s1, s2_matching, exact_match)
+    puts "matching sequences next char edgecase: passed"
+else
+    puts "matching sequences next char edgecase: failed"
+end
+
