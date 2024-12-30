@@ -1,5 +1,19 @@
 # compare_strings
 
-is_a_with_b checks if a exists within b using only basic array methods
+`is_a_with_b` checks if string `a` exists within string `b` using only basic array methods
 
-this is meant for checking strings, but will work for comparing whether any sequence (a) exists in arrayb
+This is meant for checking strings, but will work for comparing any array sequence (a)
+with another array (b)
+
+`exact_match = false` calls `downcase` on the string so it will match same word, but different capitlization. If the array is not a string it defaults to exact_match
+
+usage
+
+```
+a = "The"
+b = "welcome to the jungle"
+exact_match = false # optional defaults to true
+CompareStrings.is_a_within_b(a, b, exact_match)
+or
+CompareStrings.is_a_within_b(a, b)
+```
