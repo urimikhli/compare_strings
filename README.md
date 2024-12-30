@@ -1,6 +1,6 @@
 # compare_strings
 
-`is_a_with_b` checks if string `a` exists within string `b` using only basic array methods
+`is_a_with_b?` checks if string `a` exists within string `b` using only basic array methods
 
 This is meant for checking strings, but will work for comparing any array sequence (a)
 with another array (b)
@@ -15,9 +15,9 @@ require './compare_strings'
 a = "The"
 b = "welcome to the jungle"
 exact_match = false # optional defaults to true
-CompareStrings.is_a_within_b(a, b, exact_match)
+CompareStrings.is_a_within_b?(a, b, exact_match)
 or
-CompareStrings.is_a_within_b(a, b)
+CompareStrings.is_a_within_b?(a, b)
 ```
 
 The result is a `boolean` value of either `true` or `false`
@@ -32,5 +32,5 @@ require './compare_strings'
 
 a = [1,2,45,2,2]
 b = [3,5,7,3,1,2,45,2,2,6,9,7]
-CompareStrings.is_a_within_b(a, b)
+CompareStrings.is_a_within_b?(a, b)
 ```

@@ -2,7 +2,7 @@ require 'byebug'
 
 module CompareStrings
     class << self
-        def is_a_within_b(a, b, exact_match=true)
+        def is_a_within_b?(a, b, exact_match=true)
             exact_match = true unless a.is_a? String
             exact_match = true unless b.is_a? String
 
