@@ -196,6 +196,7 @@ def test9_not_exact_match
 end
 
 # Run tests
+puts "### exact_match = true ####"
 test1_exact_match
 test2_exact_match
 test3_exact_match
@@ -204,7 +205,7 @@ test5_exact_match
 test6_exact_match
 test7_exact_match
 test8_exact_match
-puts "###"
+puts "### exact_match = false ####"
 test1_not_exact_match
 test2_not_exact_match
 test3_not_exact_match
