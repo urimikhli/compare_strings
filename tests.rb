@@ -75,9 +75,9 @@ def test7_exact_match
     string2_match = "welcome to The jungle"
     exact_match = true
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts "passed: matching start of string"
     else
-        puts "failed: matching string"
+        puts "failed: matching start of string"
     end
 end
 
@@ -86,20 +86,20 @@ def test8_exact_match
     string2_match = "welcome to The jungle"
     exact_match = true
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts "passed: matching end of string"
     else
-        puts "failed: matching string"
+        puts "failed: matching end of string"
     end
 end
 
 def test1_not_exact_match
     string1 = "The"
-    string2_match = "welcome to The jungle"
+    string2_match = "welcome to the jungle"
     exact_match = false
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts "passed: matching string despite caps difference"
     else
-        puts "failed: matching string"
+        puts "failed: matching string despite caps difference"
     end
 end
 
@@ -116,12 +116,12 @@ end
 
 def test3_not_exact_match
     string1 = "The"
-    string2_match = "welcome to TThe jungle"
+    string2_match = "welcome to Tthe jungle"
     exact_match = false
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
-        puts "passed: matching string next char edgecase"
+        puts "passed: matching string next char edgecase despite caps difference"
     else
-        puts "failed: matching string next char edgecase"
+        puts "failed: matching string next char edgecase despite caps difference"
     end
 end
 
@@ -162,7 +162,7 @@ def test6_not_exact_match
 end
 
 def test7_not_exact_match
-    string1 = "wel"
+    string1 = "Wel"
     string2_match = "welcome to The jungle"
     exact_match = false
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
@@ -173,7 +173,7 @@ def test7_not_exact_match
 end
 
 def test8_not_exact_match
-    string1 = "ngle"
+    string1 = "NGLE"
     string2_match = "welcome to The jungle"
     exact_match = false
     if CompareStrings.is_a_within_b(string1, string2_match, exact_match)
