@@ -183,6 +183,18 @@ def test8_not_exact_match
     end
 end
 
+def test9_not_exact_match
+    # can work for sequences
+    s1 = [1,'A',3]
+    s2_matching = [1,3,'f',5,1,'a',3,'d',6,7,8,'h']
+    exact_match = false
+    if CompareStrings.is_a_within_b(s1, s2_matching, exact_match)
+        puts "failed: matching sequences: defaults to exact_match true if not String"
+    else
+        puts "passed: matching sequences: defaults to exact_match true if not String"
+    end
+end
+
 # Run tests
 test1_exact_match
 test2_exact_match
@@ -201,3 +213,4 @@ test5_not_exact_match
 test6_not_exact_match
 test7_not_exact_match
 test8_not_exact_match
+test9_not_exact_match

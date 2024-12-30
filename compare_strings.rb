@@ -3,8 +3,8 @@ require 'byebug'
 module CompareStrings
     class << self
         def is_a_within_b(a, b, exact_match=true)
-        a_char = a[a_index]
-        b_index = 0
+            exact_match = true unless a.is_a? String
+            exact_match = true unless b.is_a? String
 
             match=[]
             a_index = 0
