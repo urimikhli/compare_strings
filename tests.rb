@@ -1,6 +1,5 @@
 require './compare_strings'
 
-
 def test1_exact_match
     string1 = "The"
     string2_match = "welcome to The jungle"
