@@ -5,9 +5,9 @@ def test1_exact_match
     string2_match = "welcome to The jungle"
     exact_match = true
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts " 1: passed: matching string"
     else
-        puts "failed: matching string"
+        puts "1: failed: matching string"
     end
 end
 
@@ -16,9 +16,9 @@ def test2_exact_match
     string2_nomatch = "We've got fun and games"
     exact_match = true
     if CompareStrings.is_a_within_b?(string1, string2_nomatch, exact_match)
-        puts "failed: non matching string"
+        puts "2: failed: non matching string"
     else
-        puts "passed: non matching string"
+        puts " 2: passed: non matching string"
     end
 end
 
@@ -27,9 +27,9 @@ def test3_exact_match
     string2_match = "welcome to TThe jungle"
     exact_match = true
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string next char edgecase"
+        puts " 3: passed: matching string next char edgecase"
     else
-        puts "failed: matching string next char edgecase"
+        puts "3: failed: matching string next char edgecase"
     end
 end
 
@@ -39,9 +39,9 @@ def test4_exact_match
     s2_matching = [1,3,'f',5,1,'a',3,'d',6,7,8,'h']
     exact_match = true
     if CompareStrings.is_a_within_b?(s1, s2_matching, exact_match)
-        puts "passed: matching sequences"
+        puts " 4: passed: matching sequences"
     else
-        puts "failed: matching sequences"
+        puts "4: failed: matching sequences"
     end
 end
 
@@ -51,9 +51,9 @@ def test5_exact_match
     s2_non_matching = [1,3,'f',5,1,'a',43,'d',6,7,8,'h']
     exact_match = true
     if CompareStrings.is_a_within_b?(s1, s2_non_matching, exact_match)
-        puts "failed: NON matching sequences"
+        puts "5: failed: NON matching sequences"
     else
-        puts "passed: NON matching sequences"
+        puts " 5: passed: NON matching sequences"
     end
 end
 
@@ -63,9 +63,9 @@ def test6_exact_match
     s2_matching = [1,3,'f',5,1,1,'a',3,'d',6,7,8,'h']
     exact_match = true
     if CompareStrings.is_a_within_b?(s1, s2_matching, exact_match)
-        puts "passed: matching sequences next char edgecase"
+        puts " 6: passed: matching sequences next char edgecase"
     else
-        puts "failed: matching sequences next char edgecase"
+        puts "6: failed: matching sequences next char edgecase"
     end
 end
 
@@ -74,9 +74,9 @@ def test7_exact_match
     string2_match = "welcome to The jungle"
     exact_match = true
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching start of string"
+        puts " 7: passed: matching start of string"
     else
-        puts "failed: matching start of string"
+        puts "7: failed: matching start of string"
     end
 end
 
@@ -85,9 +85,9 @@ def test8_exact_match
     string2_match = "welcome to The jungle"
     exact_match = true
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching end of string"
+        puts " 8: passed: matching end of string"
     else
-        puts "failed: matching end of string"
+        puts "9: failed: matching end of string"
     end
 end
 
@@ -96,9 +96,9 @@ def test1_not_exact_match
     string2_match = "welcome to the jungle"
     exact_match = false
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string despite caps difference"
+        puts " 1: passed: matching string despite caps difference"
     else
-        puts "failed: matching string despite caps difference"
+        puts "1: failed: matching string despite caps difference"
     end
 end
 
@@ -107,9 +107,9 @@ def test2_not_exact_match
     string2_nomatch = "We've got fun and games"
     exact_match = false
     if CompareStrings.is_a_within_b?(string1, string2_nomatch, exact_match)
-        puts "failed: non matching string"
+        puts "2: failed: non matching string"
     else
-        puts "passed: non matching string"
+        puts " 2: passed: non matching string"
     end
 end
 
@@ -118,9 +118,9 @@ def test3_not_exact_match
     string2_match = "welcome to Tthe jungle"
     exact_match = false
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string next char edgecase despite caps difference"
+        puts " 3: passed: matching string next char edgecase despite caps difference"
     else
-        puts "failed: matching string next char edgecase despite caps difference"
+        puts "3: failed: matching string next char edgecase despite caps difference"
     end
 end
 
@@ -130,9 +130,9 @@ def test4_not_exact_match
     s2_matching = [1,3,'f',5,1,'a',3,'d',6,7,8,'h']
     exact_match = false
     if CompareStrings.is_a_within_b?(s1, s2_matching, exact_match)
-        puts "passed: matching sequences"
+        puts " 4: passed: matching sequences"
     else
-        puts "failed: matching sequences"
+        puts "4: failed: matching sequences"
     end
 end
 
@@ -142,9 +142,9 @@ def test5_not_exact_match
     s2_non_matching = [1,3,'f',5,1,'a',43,'d',6,7,8,'h']
     exact_match = false
     if CompareStrings.is_a_within_b?(s1, s2_non_matching, exact_match)
-        puts "failed: NON matching sequences"
+        puts "5: failed: NON matching sequences"
     else
-        puts "passed: NON matching sequences"
+        puts " 5: passed: NON matching sequences"
     end
 end
 
@@ -154,9 +154,9 @@ def test6_not_exact_match
     s2_matching = [1,3,'f',5,1,1,'a',3,'d',6,7,8,'h']
     exact_match = false
     if CompareStrings.is_a_within_b?(s1, s2_matching, exact_match)
-        puts "passed: matching sequences next char edgecase"
+        puts " 6: passed: matching sequences next char edgecase"
     else
-        puts "failed: matching sequences next char edgecase"
+        puts "6: failed: matching sequences next char edgecase"
     end
 end
 
@@ -165,9 +165,9 @@ def test7_not_exact_match
     string2_match = "welcome to The jungle"
     exact_match = false
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts " 7: passed: matching string"
     else
-        puts "failed: matching string"
+        puts "7: failed: matching string"
     end
 end
 
@@ -176,9 +176,9 @@ def test8_not_exact_match
     string2_match = "welcome to The jungle"
     exact_match = false
     if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
-        puts "passed: matching string"
+        puts " 8: passed: matching string"
     else
-        puts "failed: matching string"
+        puts "8: failed: matching string"
     end
 end
 
@@ -188,9 +188,9 @@ def test9_not_exact_match
     s2_matching = [1,3,'f',5,1,'a',3,'d',6,7,8,'h']
     exact_match = false
     if CompareStrings.is_a_within_b?(s1, s2_matching, exact_match)
-        puts "failed: matching sequences: defaults to exact_match true if not String"
+        puts "9: failed: matching sequences: defaults to exact_match true if not String"
     else
-        puts "passed: matching sequences: defaults to exact_match true if not String"
+        puts " 9: passed: matching sequences: defaults to exact_match true if not String"
     end
 end
 
