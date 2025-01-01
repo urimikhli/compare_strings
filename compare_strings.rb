@@ -10,11 +10,10 @@ module CompareStrings
             b = b.downcase if b.is_a?(String) && !exact_match
 
             number_matches_found = 0
-            a_char = a[0]
             b_index = 0
             while b_index < b.length
-                (number_matches_found, a_char) = match_character(
-                    a, b, a_char, b_index, number_matches_found
+                number_matches_found = match_character(
+                    a, b, b_index, number_matches_found
                 )
                 return true if number_matches_found == a.length
                 b_index += 1
@@ -24,31 +23,20 @@ module CompareStrings
 
         private
 
-        def match_character(a, b, a_char, b_index, number_matches_found)
-            if a_char == b[b_index]
-                return increment_on_match(a, a_char, number_matches_found)
+        def match_character(a, b, b_index, number_matches_found)
+            if a[number_matches_found] == b[b_index]
+                return number_matches_found += 1
             elsif number_matches_found > 0
-                (number_matches_found, a_char) = reset_matchs(a)
+                # this block is only run after at least one a character has matched 
+                # and then a subsequent character failed to match
+                number_matches_found = 0
 
-                if a_char == b[b_index]
-                    return increment_on_match(a, a_char, number_matches_found)
+                if a[number_matches_found] == b[b_index]
+                    return number_matches_found += 1
                 end
             end
-            return number_matches_found, a_char
+            return number_matches_found
         end
 
-        def increment_on_match(a, a_char, number_matches_found)
-            number_matches_found += 1
-            a_char = a[number_matches_found]
-
-            return number_matches_found, a_char
-        end
-
-        def reset_matchs(a)
-            number_matches_found = 0
-            a_index = 0
-            a_char = a[a_index]
-            return number_matches_found, a_char
-        end
     end
 end
