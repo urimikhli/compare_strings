@@ -194,6 +194,50 @@ def test9_not_exact_match
     end
 end
 
+def test1_empty_and_nil
+    string1 = nil
+    string2_match = "welcome to The jungle"
+    exact_match = true
+    if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
+        puts "1: failed: null 'a' string"
+    else
+        puts " 1: passed: null 'a' string"
+    end
+end
+
+def test2_empty_and_nil
+    string1 = ""
+    string2_match = "welcome to The jungle"
+    exact_match = true
+    if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
+        puts " 2: passed: empty 'a' string"
+    else
+        puts "2: failed: empty 'a' string"
+    end
+end
+
+def test3_empty_and_nil
+    string1 = "the"
+    string2_match = nil
+    exact_match = true
+    if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
+        puts "3: failed: null 'b' string"
+    else
+        puts " 3: passed: null 'b' string"
+    end
+end
+
+def test4_empty_and_nil
+    string1 = "the"
+    string2_match = ""
+    exact_match = true
+    if CompareStrings.is_a_within_b?(string1, string2_match, exact_match)
+        puts "4: failed: empty 'b' string"
+    else
+        puts " 4: passed: empty 'b' string"
+    end
+end
+
 # Run tests
 puts "### exact_match = true ####"
 test1_exact_match
@@ -214,3 +258,8 @@ test6_not_exact_match
 test7_not_exact_match
 test8_not_exact_match
 test9_not_exact_match
+puts "##### empty string and nil guardrails"
+test1_empty_and_nil
+test2_empty_and_nil
+test3_empty_and_nil
+test4_empty_and_nil

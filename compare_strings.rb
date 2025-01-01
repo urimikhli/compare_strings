@@ -3,6 +3,11 @@ require 'byebug'
 module CompareStrings
     class << self
         def is_a_within_b?(a, b, exact_match=true)
+            return false if a.nil?
+            return true if a.empty?
+            return false if b.nil?
+            return false if b.empty?
+
             # only strings are allowed non exact matching
             exact_match = true unless a.is_a? String
             exact_match = true unless b.is_a? String
