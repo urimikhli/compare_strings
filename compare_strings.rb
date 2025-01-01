@@ -6,8 +6,8 @@ module CompareStrings
             exact_match = true unless a.is_a? String
             exact_match = true unless b.is_a? String
 
-            a = a.downcase if a.is_a?(String) && exact_match
-            b = b.downcase if b.is_a?(String) && exact_match
+            a = a.downcase if a.is_a?(String) && !exact_match
+            b = b.downcase if b.is_a?(String) && !exact_match
 
             number_matches_found = 0
             a_index = 0
