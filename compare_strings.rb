@@ -6,17 +6,18 @@ module CompareStrings
             exact_match = true unless a.is_a? String
             exact_match = true unless b.is_a? String
 
-            match=[]
+            a = a.downcase if a.is_a?(String) && exact_match
+            b = b.downcase if b.is_a?(String) && exact_match
+
+            number_matches_found = 0
             a_index = 0
             a_char = a[a_index]
             b_index = 0
             while b_index < b.length
-                if exact_match
-                    (match, a_index, a_char) = match_character_and_increment(a, b, a_char, a_index, b_index, match)
-                elsif !exact_match
-                    (match, a_index, a_char) = match_character_and_increment(a.downcase, b.downcase, a_char.downcase, a_index, b_index, match)
-                end
-                return true if match.length == a.length
+                (number_matches_found, a_index, a_char) = match_character_and_increment(
+                    a, b, a_char, a_index, b_index, number_matches_found
+                )
+                return true if number_matches_found == a.length
                 b_index += 1
             end
             false
@@ -24,26 +25,32 @@ module CompareStrings
 
         private
 
-        def match_character_and_increment(a, b, a_char, a_index, b_index, match)
+        def match_character_and_increment(a, b, a_char, a_index, b_index, number_matches_found)
             if a_char == b[b_index]
-                return match_and_increment_string(a, a_char, a_index, match)
-            elsif match.length > 0
-                match = []
-                a_index = 0
-                a_char = a[a_index]
+                return match_and_increment_string(a, a_char, a_index, number_matches_found)
+            elsif number_matches_found > 0
+                (number_matches_found, a_index, a_char) = reset_matchs(a)
 
                 if a_char == b[b_index]
-                    return match_and_increment_string(a, a_char, a_index, match)
+                    return match_and_increment_string(a, a_char, a_index, number_matches_found)
                 end
             end
-            return match, a_index, a_char
+            return number_matches_found, a_index, a_char
         end
 
-        def match_and_increment_string(a, a_char, a_index, match)
-            match << a_char
+        def match_and_increment_string(a, a_char, a_index, number_matches_found)
+            number_matches_found += 1
             a_index += 1
             a_char = a[a_index]
-            return match, a_index, a_char
+
+            return number_matches_found, a_index, a_char
+        end
+
+        def reset_matchs(a)
+            number_matches_found = 0
+            a_index = 0
+            a_char = a[a_index]
+            return number_matches_found, a_index, a_char
         end
     end
 end
