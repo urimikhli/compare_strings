@@ -13,7 +13,7 @@ module CompareStrings
             a_char = a[0]
             b_index = 0
             while b_index < b.length
-                (number_matches_found, a_char) = match_character_and_increment(
+                (number_matches_found, a_char) = match_character(
                     a, b, a_char, b_index, number_matches_found
                 )
                 return true if number_matches_found == a.length
@@ -24,20 +24,20 @@ module CompareStrings
 
         private
 
-        def match_character_and_increment(a, b, a_char, b_index, number_matches_found)
+        def match_character(a, b, a_char, b_index, number_matches_found)
             if a_char == b[b_index]
-                return match_and_increment_string(a, a_char, number_matches_found)
+                return increment_on_match(a, a_char, number_matches_found)
             elsif number_matches_found > 0
                 (number_matches_found, a_char) = reset_matchs(a)
 
                 if a_char == b[b_index]
-                    return match_and_increment_string(a, a_char, number_matches_found)
+                    return increment_on_match(a, a_char, number_matches_found)
                 end
             end
             return number_matches_found, a_char
         end
 
-        def match_and_increment_string(a, a_char, number_matches_found)
+        def increment_on_match(a, a_char, number_matches_found)
             number_matches_found += 1
             a_char = a[number_matches_found]
 
